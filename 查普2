@@ -1,0 +1,36 @@
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Oct 22 19:39:13 2022
+
+@author: jiancui
+"""
+
+#%% 练习1
+# 1.不能对文字进行赋值，故42=n 程序错误
+# 2.x=y=1 程序可以运行
+# 3.语法错误，结尾不能有单引号或分号
+# 4.若数字结尾放句号，则程序可以运行，打印字符串结尾放句号，程序也可以运行
+# 5.若直接写成xy，则程序报错
+
+#%%练习2
+# 1求球体体积
+import math
+r=5
+v=(4/3)*math.pi*r**3
+print(v)    # v=523.6 则球体体积为523.6
+
+# 2.求60本书花了多少钱
+
+book_price_dollar=24.95*0.4*60
+tran_expense=3+59*0.75
+expence_60=book_price_dollar+tran_expense
+print(expence_60)  #expence_60=646.0    则60本书一共646.0元
+
+# 3.回家吃饭
+time_easy_pace=(8*60+15)*2
+time_tempo=(7*60+12)*3
+time_s=time_easy_pace+time_tempo
+time_m=time_s/60
+print(time_m)  # time_m=38.1min 则回家的时间是7点20
