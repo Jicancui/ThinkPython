@@ -1,0 +1,10 @@
+import math
+#print("This is a code cell ... and Pi is =",math.pi)
+#print("hello world!")
+
+x=1
+y=2
+x,y=y,x
+print("After swapping")
+print('x=',x)
+print('y=',y)
