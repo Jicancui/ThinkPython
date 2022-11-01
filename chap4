@@ -1,1 +1,46 @@
 
+# #%%  4.1 （1）堆栈图
+
+
+# #%%  4.2 编写一个花朵
+import turtle
+import turtle as t
+def turtle_flowers(n):
+    for i in range(n):
+        angle1=180*(1/n)
+        t.seth(angle1+(i*(360/n)))
+        #90,180,270,360
+        t.circle(200,360/n)
+        t.seth(-(180-angle1)+i*360/n)
+        # -90 0 90 180
+        t.circle(200,360/n)
+    turtle.mainloop()
+
+turtle_flowers(7)
+turtle_flowers(20)
+#%% 4.3
+import turtle
+import math
+bob=turtle.Turtle()
+def triangle(t,r,angle):
+    y=r*math.sin(angle*math.pi/180)
+
+    t.rt(angle)
+    t.fd(r)
+    t.lt(90+angle)
+    t.fd(2*y)
+    t.lt(90+angle)
+    t.fd(r)
+    t.rt(180-angle)
+
+def polypie(t,n,r):
+    angle=360/n
+    for i in range(n):
+        triangle(t,r,angle/2)
+
+polypie(bob,5,40)
+turtle.mainloop()
+
+#%% 习题4.4
+
+#%% 习题4.5
