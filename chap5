@@ -1,0 +1,129 @@
+#%%  excrcise1 5.1
+import time
+
+day_=time.time()//(60*60*24)
+hour_=time.time()//(60*60)
+minute_=time.time()//(60)
+second_=time.time()
+print(day_)
+print(hour_)
+print(minute_)
+print(second_)
+
+#%%  5.2
+# 5.2.1
+
+def check_fermat(a,b,c,n):
+
+    if n>2 and a**n+b**n==c**n:
+        print("Holy smokes, Fermat was wrong!")
+    else:
+        print("No, that doesn’t work.")
+
+#5.2.2
+
+a = input("请输入数字a：")
+b = input("请输入数字b：")
+c = input("请输入数字c：")
+n = input("请输入数字n：")
+a = int(a)
+b = int(b)
+c = int(c)
+n = int(n)
+
+def check_fermat(a,b,c,n):
+    if n>2 and a**n+b**n==c**n:
+        print("Holy smokes, Fermat was wrong!")
+    else:
+        print("No, that doesn’t work.")
+
+check_fermat(a,b,c,n)
+
+#%% 5.3
+# 5.3.1
+def is_triangle(a,b,c):
+    if a+b>c or b+c>a or a+c>b:
+        print("Yes")
+    else:
+        print("No")
+
+is_triangle(3,4,5)
+
+# 5.3.2
+a=int(input("请输入变长a："))
+b=int(input("请输入变长b："))
+c=int(input("请输入变长c："))
+
+def is_triangle(a,b,c):
+    if a+b>c or b+c>a or a+c>b:
+        print("Yes")
+    else:
+        print("No")
+
+def input_l(a,b,c):
+    print(a,b,c)
+    is_triangle(a,b,c)
+
+input_l(a,b,c)
+
+# # 5.4
+# # 5.4.1
+def recurse(n,s):
+    if n==0:
+        print(s)
+    else:
+        recurse(n-1,n+s)
+
+# recurse(3,0)
+recurse(-1,0)  # 超过最大递归深度，没有答案
+
+# 5.4.2
+"""
+    函数调用需要先对比n，如果n=0，则打印s，如果n不等于0，则重新执行函数，则n=n-1,s=n+s
+    重新执行函数
+"""
+
+# 5.5
+import turtle
+bob=turtle.Turtle()
+
+def draw(t,length,n):
+    if n==0:
+        return
+    angle=50
+    t.fd(length*n)
+    t.lt(angle)
+    draw(t,length,n-1)
+    t.rt(2*angle)
+    draw(t,length,n-1)
+    t.lt(angle)
+    t.bk(length*n)
+
+
+draw(bob,10,8)
+turtle.mainloop()
+
+#5.6
+import turtle
+
+def koch(size, n):
+    if n == 0:
+        turtle.fd(size)
+    else:
+        for angle in [0, 60, -120, 60]:
+            turtle.left(angle)
+            koch(size / 3, n - 1)
+
+def main():
+    turtle.setup(800, 400)
+    turtle.speed(0)  # 控制绘制速度
+    turtle.penup()
+    turtle.goto(-300, -50)
+    turtle.pendown()
+    turtle.pensize(2)
+    koch(600, 6)  # 0阶科赫曲线长度，阶数
+    turtle.hideturtle()
+
+
+main()
+turtle.mainloop()
