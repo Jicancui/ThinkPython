@@ -1,0 +1,127 @@
+#%% 10.1
+
+t=[[1,2],[3],[4,5,6],[5],[1,3]]
+def nested_sum(t):
+    total=0
+    for i in t:
+        for i1 in i:
+            total=total+i1
+    print(total)
+
+nested_sum(t)
+
+#%% 10.2
+t=[1,2,3,4,5,6]
+def cumsum(t):
+    total=0
+    res=[]
+    for i in range(1,len(t)+1):
+        total=total+t[i-1]
+        res.append(total)
+    print(res)
+cumsum(t)
+
+#%% 10.3
+t=[1,2,3,4]
+def middle(t):
+    del t[0]
+    del t[-1]
+    print(t)
+
+middle(t)
+
+#%% 10.4
+t = [1, 2, 3, 4,5]
+def chap(t):
+    t.remove(t[0])
+    t.remove(t[-1])
+    print(t)
+    return None
+
+print(chap(t))
+
+#%% 10.5
+t=[1,2,2]
+
+def is_sorted(t):
+    t2=sorted(t)
+    if t2==t:
+        return True
+    else:
+        return False
+
+print(is_sorted(t))
+
+
+#%% 10.6
+
+def is_anagram(t1,t2):
+    if sorted(t1)==sorted(t2):
+        return True
+    else:
+        return False
+
+x=is_anagram("app","pas")
+print(x)
+
+#%% 10.7
+t=[1,4,2,3,0,5]
+
+def has_duplicates(t):
+    t2 = sorted(t)
+    for i in range(len(t2)):
+        if t2[i]==t2[i-1]:
+            return True
+
+print(has_duplicates(t))
+
+
+#%%10.8
+
+def jc_(n):
+    s=n
+    for i in range(1,n):
+        s=s*i
+    return s
+# print(jc_(5))
+
+p=1-(jc_(365))/((365**23)*(jc_(342)))
+print(p)
+
+#%% 10.9
+f=open("words.txt")
+t=[]
+for line in f:
+    word=line.strip()
+    t.append(word)
+print(t) ##该方式比较快
+
+for line in f:
+    word=line.strip()
+    t=t+[word]
+print(t) ##该方式比较慢
+
+#%%10.10
+import bisect
+b=[1,3,4,6,9,12]
+def in_bisect(a,x):
+    x1=bisect.bisect_left(a,x)
+    x2=bisect.bisect_right(a,x)
+    if x1==x2:
+        return None
+    else:
+        return x
+
+print(in_bisect(b,2))
+
+#%%10.11
+f=open("words.txt")
+for line in f:
+    word1=line.strip()
+    word2=line.strip()
+    if word1==word2[::-1]:
+        print(word1)
+        print(word2)
+
+
+
