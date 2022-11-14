@@ -1,0 +1,160 @@
+#%%9.1
+
+f=open("words.txt")
+f.readline()
+for line in f:
+    word=line.strip()
+    if len(word)>20:
+        print(word)
+
+#%% 9,2
+def has_no_e(word):
+    for letter in word:
+        if letter=="e":
+            return False
+    return True
+
+# print(has_no_e("hkhkh"))
+n=0
+m=0
+
+for line in f:
+    word=line.strip()
+    if len(word)>20:
+        if has_no_e(word):
+            n=n+1
+            print(word)
+        m=m+1
+per=n/m
+print(per)
+
+#%% 9.3
+def avoids(word,fob):
+    for letter in word:
+        if letter==fob:
+            return False
+    return True
+
+# print(avoids("happy",'a'))
+a=input("请输入禁止的字符：")
+n=0
+for line in f:
+    word=line.strip()
+    if avoids(word,a):
+        n=n+1
+        print(word)
+        print(n)
+
+#%% 9.4
+def uses_only(word,str):
+    if word==str:
+        return True
+    return False
+print(uses_only('happy','happy'))
+
+#%% 9.5
+def uses_all(word,str):
+    for i in str:
+        if i not in word:
+            return False
+    return True
+
+# print(uses_all("happy",'z'))
+str=input("请输入字符串：")
+n=0
+for line in f:
+    word=line.strip()
+    if uses_all(word,str):
+        n=n+1
+print(n)
+
+#%% 9.6
+def is_abcedarian(word):
+    i=1
+    for letter in word:
+        for l in range(i,len(word)):
+            if letter >=word[l]:
+                # if l==i and letter == word[l]:
+                #     continue
+                return False
+        i=i+1
+    return True
+
+n=0
+for line in f:
+    word=line.strip()
+    if is_abcedarian(word):
+        n=n+1
+print(n)
+
+#%% 9.7
+def find_xx(word):
+    i=0
+    if len(word)<6:
+        return False
+    if len(word)>6:
+        if word[i]==word[i+1] and word[i+2]==word[i+3] and word[i+4]==word[i+5]:
+            return True
+        else:
+            return find_xx(word[1:])
+    return False
+
+for line in f:
+    word=line.strip()
+    if find_xx(word):
+        print(word)
+
+#%% 9.8
+
+def huiwen(num1):
+    for i in range(0,len(num1)-1):
+        num2=num1[::-1]
+        if num1[i]!=num2[i]:
+            return False
+    return True
+
+def f_six(num3):
+    if num3[1]!=num3[4] and num3[2]!=num3[3]:
+        return False
+    return True
+
+# print(huiwen("101001012"))
+# 后四位就是回文数
+def f_four(num1):
+    if num1[2]!=num1[5] or num1[3]!=num1[4]:
+        return False
+    return True
+
+# 后五位回文数
+def f_five(num2):
+    if num2[1]!=num2[5] or num2[2]!=num2[4]:
+        return False
+    return True
+
+for num_1 in range(100000,999999):
+    num_str=str(num_1)
+    if f_four(num_str):
+        num_2=num_1+1
+        num_str2=str(num_2)
+        if f_five(num_str2):
+            num_3=num_2+1
+            num_str3=str(num_3)
+            if f_six(num_str3):
+                num_4=num_3+1
+                num_str4=str(num_4)
+                if huiwen(num_str4):
+                    print(num_1)  #结果19888；19999
+
+
+#%% 9.9 计算年龄
+
+for mam_age in range(18,100): #
+    dau_age = mam_age - 18
+    mam_age=str(mam_age)
+    dau_age=str(dau_age)
+    if dau_age[0]==mam_age[1] and dau_age[1]==mam_age[0]:
+        print(dau_age)
+
+
+
+
